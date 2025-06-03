@@ -2,9 +2,12 @@
   "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     "jsx": "react",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "lib": ["es2015", "dom"],
-    "module": "nodenext"
+    "module": "es6",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   }
 }

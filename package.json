@@ -8,12 +8,20 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "react-text-balancer": "turbo --filter=react-text-balancer",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "clean": "turbo run clean && rm -rf node_modules",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@joshwooding/vite-plugin-react-docgen-typescript": "^0.6.0",
+    "@storybook/addon-onboarding": "^9.0.4",
+    "@storybook/react-vite": "^9.0.4",
+    "@vanilla-extract/vite-plugin": "^5.0.3",
     "prettier": "^3.5.3",
+    "storybook": "^9.0.4",
     "turbo": "^2.5.4",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "vite": "^6.3.5"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
