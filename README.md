@@ -1,84 +1,90 @@
-# Turborepo starter
+# TextBalance
 
-This Turborepo starter is maintained by the Turborepo core team.
+**한국어 텍스트 표현을 위한 React 컴포넌트 라이브러리**  
+한국어 고유의 어절 구조, 줄바꿈 규칙, 조사 처리, 강조 표현 등을 지원합니다.  
+가독성 높은 UI와 스크린리더 친화적인 문장 구조를 구성하는 데 최적화되어 있습니다.
 
-## Using this example
+---
 
-Run the following command:
+## ✨ 주요 기능
 
-```sh
-npx create-turbo@latest
+- 말줄임(`ellipsis`) 및 라인 클램프 처리
+
+---
+
+## 📦 설치
+
+```bash
+npm install koleean-text-balancer
 ```
 
-## What's inside?
+또는
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+yarn add koleean-text-balancer
 ```
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
+## 🚀 사용 예시
 
-```
-cd my-turborepo
-pnpm dev
-```
+```tsx
+import { TextBalance } from "koleean-text-balancer";
 
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
+export default function Example() {
+  return (
+    <TextBalance balance josa emphasis={["중요한", "기억"]} ellipsis={2}>
+      오늘은 중요한 발표가 있는 날이며 반드시 기억해야 합니다.
+    </TextBalance>
+  );
+}
 ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+---
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+## ⚙️ Props
 
+| Prop       | Type                     | Default     | 설명                                                   |
+| ---------- | ------------------------ | ----------- | ------------------------------------------------------ |
+| `balance`  | `boolean`                | `false`     | 어절 단위 줄바꿈 밸런스를 적용합니다                   |
+| `josa`     | `boolean`                | `false`     | 문장 내 자동 조사 적용                                 |
+| `emphasis` | `string[]`               | `[]`        | 강조할 단어 목록 (`<mark>`로 처리)                     |
+| `ellipsis` | `number`                 | `undefined` | 최대 라인 수를 지정하고 말줄임 처리 (`2` → 2줄 말줄임) |
+| `as`       | `'p' \| 'span' \| 'div'` | `'span'`    | 렌더링 요소 지정                                       |
+
+---
+
+## 🧪 예제
+
+```tsx
+<TextBalance josa>{`홍길동${josa("을/를")}`} 찾고 있습니다.</TextBalance>
 ```
-npx turbo link
-```
 
-## Useful Links
+출력 결과: `홍길동을 찾고 있습니다.`
 
-Learn more about the power of Turborepo:
+---
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+## 📚 라이선스
+
+MIT License
+
+---
+
+## 🛠 TODO
+
+- [ ] SSR 대응
+- [ ] 동적 강조 단어 음절 처리 개선
+- [ ] `lang="ko"` 자동 삽입 옵션
+- [ ] 어절 기준 줄바꿈(`word-break: keep-all`)
+- [ ] 의미 균형을 고려한 자동 줄바꿈(`balance`)
+- [ ] 조사 자동 선택 (을/를, 이/가 등)
+- [ ] 문장 내 키워드 강조
+- [ ] 스크린리더 친화적인 문장 분리
+- [ ] Line-height / letter-spacing 기반 읽기 흐름 최적화
+
+---
+
+## 🙌 기여하기
+
+PR 및 이슈 환영합니다!  
+한국어 환경의 UX 개선에 관심 있는 분들의 기여를 기다립니다.
