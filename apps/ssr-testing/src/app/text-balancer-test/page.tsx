@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TextBalance } from "react-text-balancer";
+import { TextBalance } from "koleean-text-balancer";
 
 const page = () => {
   return (
