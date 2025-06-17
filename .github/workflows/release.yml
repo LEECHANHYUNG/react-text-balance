@@ -25,12 +25,8 @@ jobs:
           registry-url: "https://registry.npmjs.org/"
           always-auth: true
 
-      - name: Set npm config
-        shell: bash
-        run: |
-          # npm 레지스트리 설정
-          pnpm config set registry=https://registry.npmjs.org/
-          pnpm config set always-auth=true
+      - uses: pnpm/action-setup@v4
+
       - name: Install Dependencies
         run: |
           pnpm install --no-frozen-lockfile
