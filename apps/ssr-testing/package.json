@@ -1,6 +1,6 @@
 {
   "name": "ssr-testing",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "koleean-text-balancer": "^0.0.2",
+    "koleean-text-balancer": "workspace:*",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
