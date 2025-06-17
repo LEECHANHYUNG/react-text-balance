@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "pnpm" # 패키지 매니저 지정 (npm, pip, docker 등)
+    directory: "/" # package.json이 위치한 디렉토리
+    schedule:
+      interval: "daily" # 업데이트 주기 (daily, weekly, monthly)
+    open-pull-requests-limit: 10 # 한 번에 열 수 있는 최대 PR 수
+    target-branch: "main" # PR을 보낼 대상 브랜치
+    labels:
+      - "dependencies" # PR에 적용할 레이블
+    ignore:
+      - dependency-name: "koleean-text-balancer" # 특정 패키지 무시
+    allow:
+      - dependency-type: "direct" # 직접 의존성만 업데이트
