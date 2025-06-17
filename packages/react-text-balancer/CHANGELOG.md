@@ -1,5 +1,12 @@
 # koleean-text-balancer
 
+## 0.0.4
+
+### Patch Changes
+
+- 713511a: test
+- e54e09d: test
+
 ## 0.0.3
 
 ### Patch Changes
