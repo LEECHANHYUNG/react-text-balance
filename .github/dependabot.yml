@@ -1,10 +1,10 @@
 version: 2
 updates:
-  - package-ecosystem: "pnpm"
+  - package-ecosystem: "npm"
     directory: "/packages/react-text-balancer" # 패키지별 package.json
     schedule:
       interval: "weekly"
-  - package-ecosystem: "pnpm"
+  - package-ecosystem: "npm"
     directory: "/apps/ssr-testing"
     schedule:
       interval: "weekly"
