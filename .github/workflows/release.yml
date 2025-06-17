@@ -23,6 +23,16 @@ jobs:
         uses: ./.github/composite-actions/install
         with:
           github-token: ${{ secrets.DEPLOYMENT_TOKEN }}
+      - name: Set npm config
+        shell: bash
+        run: |
+          # npm 레지스트리 설정
+          pnpm config set registry=https://registry.npmjs.org/
+          pnpm config set always-auth=true
+      - name: Install Dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
+          pnpm install --frozen-lockfile
 
       - name: Create .npmrc file
         run: |
