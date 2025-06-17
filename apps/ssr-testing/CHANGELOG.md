@@ -1,5 +1,12 @@
 # ssr-testing
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [45ca5ef]
+  - koleean-text-balancer@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
