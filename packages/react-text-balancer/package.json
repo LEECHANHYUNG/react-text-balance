@@ -32,7 +32,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/react": "19",
     "@types/react-dom": "19",
-    "@vanilla-extract/esbuild-plugin": "^2.3.16",
+    "@vanilla-extract/esbuild-plugin": "^2.3.18",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "postcss": "^8.5.6"
