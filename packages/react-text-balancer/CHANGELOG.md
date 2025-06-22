@@ -1,5 +1,11 @@
 # koleean-text-balancer
 
+## 0.0.6-beta.0
+
+### Patch Changes
+
+- 57c096a: feat: add test comment to index.ts in react-text-balancer package
+
 ## 0.0.5
 
 ### Patch Changes
