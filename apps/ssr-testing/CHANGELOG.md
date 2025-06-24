@@ -1,11 +1,11 @@
 # ssr-testing
 
-## 0.0.6-beta.0
+## 0.0.6
 
 ### Patch Changes
 
 - Updated dependencies [57c096a]
-  - koleean-text-balancer@0.0.6-beta.0
+  - koleean-text-balancer@0.0.6
 
 ## 0.0.5
 
