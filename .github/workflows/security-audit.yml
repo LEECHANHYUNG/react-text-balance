@@ -1,0 +1,24 @@
+name: Security Audit
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * *" # 매일 UTC 자정 실행
+jobs:
+  security_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run npm audit (high severity, prod only)
+        run: npm audit --audit-level=high --omit=dev --json > audit-report.json
+      - name: Upload audit report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: audit-report.json
