@@ -5,31 +5,30 @@ on:
   schedule:
     - cron: "0 0 * * *" # 매일 UTC 자정 실행
   workflow_dispatch: # 수동 실행 옵션 추가
-
 jobs:
   security_audit:
     runs-on: ubuntu-latest
     permissions:
-      security-events: write # 보안 이벤트 기록 권한
-      contents: read # 코드 접근 권한
+      security-events: write
+      contents: read
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js with caching
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: "package.json"
-          cache: "pnpm" # pnpm 캐시 자동 활성화
-
       - name: Install pnpm
-        uses: pnpm/action-setup@v2 # 공식 pnpm 액션 사용
+        uses: pnpm/action-setup@v2
         with:
           version: 9
 
+      - name: Setup Node.js with pnpm cache
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: "package.json"
+          cache: "pnpm"
+
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --prod # 개발 의존성 제외
+        run: pnpm install --frozen-lockfile --prod
 
       - name: Run security audit
         id: audit
